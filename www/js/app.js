@@ -2,14 +2,14 @@
   angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', 'angularMoment', 'ngCordova', 'firebase','ui.identicon'])
 
     .run(function($ionicPlatform, $state, ConfigurationService, UserService, EntityService) {
-      $ionicPlatform.on('pause', function() {
-        Firebase.goOffline();
-
-      });
-      $ionicPlatform.on('resume', function() {
-        Firebase.goOnline();
-
-      });
+      // $ionicPlatform.on('pause', function() {
+      //   Firebase.goOffline();
+      //
+      // });
+      // $ionicPlatform.on('resume', function() {
+      //   Firebase.goOnline();
+      //
+      // });
       $ionicPlatform.ready(function() {
         if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {
           setTimeout(function() {
@@ -42,7 +42,7 @@
                 //     console.log("Login Failed!", error);
                 //   } else {
                 //     if(!isNotificationClicked)
-                      $state.go("tab.match");
+                      $state.go("friends");
                 //   }
                 // });
               }
@@ -147,6 +147,21 @@
             }
           }
         })
+        .state('friends', {
+          url: "/friends",
+          templateUrl: "templates/friends/html/friends.html",
+          controller: "friendsCtrl"
+
+        })
+        // .state('tab.friends', {
+        //   url: '/friends',
+        //   views: {
+        //     'tab-friends': {
+        //       templateUrl: 'templates/friends/html/friends.html',
+        //       controller: 'friendsCtrl'
+        //     }
+        //   }
+        // })
 
 
         .state('tab.myProfile', {

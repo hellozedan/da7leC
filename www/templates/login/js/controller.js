@@ -27,8 +27,9 @@
           .then(function (user) {
             ConfigurationService.userDetails = null;
             window.localStorage['user'] = angular.toJson(user);
-            debugger
-            $scope.validSms = true;
+            $state.go("tab.match");
+            // debugger
+            // $scope.validSms = true;
           }, function (err) {
           });
       }
