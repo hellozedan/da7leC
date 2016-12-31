@@ -2,9 +2,9 @@
   appServices.factory('ConfigurationService', function ($ionicPopup) {
     return {
       ServerUrl: function () {
-          return "https://da7le.herokuapp.com";
-        // return "http://localhost:3000";
-         //return "http://192.168.1.14:3000";
+          //return "https://da7le.herokuapp.com";
+         //return "http://localhost:3000";
+         return "http://192.168.1.16:3000";
       },
       FireBaseUrl: function(){
         return "https://mustknow.firebaseIO.com";

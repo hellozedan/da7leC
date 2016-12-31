@@ -11,10 +11,11 @@
         <!--&lt;!&ndash;<i class="icon ion-record online-offline" ng-class="{'online-circle': message.online, 'offline-circle': !message.online}"></i>&ndash;&gt;-->
         <!--</ion-item>-->
 
-      <ion-item ng-click="" class="item-avatar item-icon-right" ng-repeat="friend in friends">
-        <identicon  username='friend.phone_number ' size='26'></identicon>        <!--<img ng-if="message.fbPhotoUrl" ng-src="{{message.fbPhotoUrl}}">-->
-        <p class="subject-description">{{friend.phone_number  }} {{friend.phone_number}}</p>
-        <span class="subject-time" am-time-ago="friend.dahleTime"></span> 
+      <ion-item class="item-avatar item-icon-right" ng-repeat="friend in friends" ng-click="sendDahle(friend)">  <!--ng-if="friend.confirmed_date"-->
+        <identicon style="border: 8px solid #267fcb;" username='friend.phone_number ' size='26' ></identicon>        <!--<img ng-if="message.fbPhotoUrl" ng-src="{{message.fbPhotoUrl}}">-->
+      <!--  <p class="subject-description">{{friend.phone_number  }} {{friend.phone_number}}</p>&lt;!&ndash;-->
+        <p class="subject-description" >{{friend.nickname}}</p>
+        <span class="subject-time" am-time-ago="friend.dahleTime"></span>
 
 
         <!--<i ng-class="message.readMessage ? 'message-unread' : (!message.readMessage ? 'message-read' : 'message-unread')" ng-click="goToChat(message)" class="icon ion-chevron-right"></i>-->
@@ -23,7 +24,7 @@
     </ion-list>
   </ion-content>
   <div class="bar bar-footer add-subject-fotter">
-    <div ng-click="sendSms()"  class="create-subject-btn filter-btn">
+    <div ng-click="sendSms()"  class="invite-friends-plus create-subject-btn">
 
     </div>
 

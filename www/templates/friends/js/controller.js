@@ -6,7 +6,11 @@
       },
       function (err) {
       }
-    )
+    );
+    $scope.sendDahle=function(friend){
+      console.log('dahle!');
+    }
   });
+
 })();
 

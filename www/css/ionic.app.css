@@ -10132,7 +10132,7 @@ p.notification {
   height: 60px !important; }
 
 .subject-list .list .item {
-  height: 115px;
+  height: 100px;
   margin-bottom: 10px;
   border-radius: 5px;
   padding-left: 100px; }
@@ -10260,6 +10260,9 @@ textarea, input::-webkit-input-placeholder {
 
 .create-subject-btn-grey {
   background-image: url("../img/create-subject-grey.png"); }
+
+.invite-friends-plus {
+  background-image: url("../img/plus-icon.png"); }
 
 .create-subject-btn-blue {
   background-image: url("../img/create-subject-blue.png"); }
@@ -10493,8 +10496,14 @@ button:active {
 
 .subject-description {
   width: 90%;
-  font-size: 12px !important;
-  white-space: initial !important; }
+  font-size: xx-large !important;
+  white-space: initial !important;
+  height: 90%;
+  text-align: center;
+  margin-top: 10%;
+  margin-bottom: 10% !important;
+  color: #1676c7 !important;
+  font-weight: bold; }
 
 .last-message {
   font-weight: bold; }
