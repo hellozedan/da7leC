@@ -1,0 +1,22 @@
+<ion-tabs ng-controller="tabsCtrl" class="tabs-striped tabs-color-positive tabs-top">
+  <i ng-if="checkUndreadMessage()" class="icon ion-record circle-new-message" ></i>
+
+
+  <ion-tab icon-on="add-subject-blue" icon-off="add-subject-grey" href="#/tab/match">
+    <ion-nav-view name="tab-match"></ion-nav-view>
+  </ion-tab>
+
+  <!-- Chats Tab -->
+  <ion-tab title="Messages" icon-off="msg_grey" icon-on="msg_blue" href="#/tab/messages">
+     <ion-nav-view name="tab-messages">
+
+     </ion-nav-view>
+  </ion-tab>
+
+  <!-- Account Tab -->
+  <ion-tab title="Account" icon-off="setting_grey" icon-on="setting_blue" href="#/tab/myProfile">
+    <ion-nav-view name="tab-myProfile"></ion-nav-view>
+  </ion-tab>
+
+
+</ion-tabs>
