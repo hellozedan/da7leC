@@ -10268,9 +10268,13 @@ textarea, input::-webkit-input-placeholder {
   background-image: url("../img/create-subject-blue.png"); }
 
 .create-subject-btn {
-  padding: 15px;
-  height: 60px;
-  width: 60px;
+  padding-right: 15px;
+  padding-top: 10px;
+  border-radius: 70px;
+  font-size: 50px;
+  background: whitesmoke;
+  height: 70px;
+  width: 70px;
   background-size: 100% 100%;
   background-repeat: repeat-x; }
 

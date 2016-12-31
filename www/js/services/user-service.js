@@ -108,6 +108,22 @@
         });
         return deferred.promise;
       },
+      Invite: function (users) {
+        var deferred = $q.defer();
+        $http.post(ConfigurationService.ServerUrl() + '/api/users/invite',
+          users,
+          {
+          headers: {
+            "access-token": ConfigurationService.UserDetails().token
+          }
+        }).success(function (data) {
+          deferred.resolve(data);
+        }).error(function (msg, code) {
+          deferred.reject(msg);
+          //   $log.error(msg, code);
+        });
+        return deferred.promise;
+      },
       FBlogin: function () {
         var deferred = $q.defer();
         $cordovaFacebook.login(["public_profile", "email", "user_friends", "user_birthday"]).then(

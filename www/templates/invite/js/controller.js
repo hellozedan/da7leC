@@ -1,25 +1,21 @@
 (function () {
-  appControllers.controller('friendsCtrl', function ($scope, $rootScope, $state, $stateParams, $timeout, $firebaseArray, ConfigurationService, MessagesService, UserService, EntityService, $cordovaContacts, $cordovaSms) {
-    $scope.friendList = [{phoneNumber: '0544282120'}, {phoneNumber: '0544282120'}, {phoneNumber: '0544282120'}, {phoneNumber: '0544282120'}];
-    $scope.getAllContacts = function () {
-      console.log('getAllContacts')
-      $cordovaContacts.find({}).then(function (allContacts) { //omitting parameter to .find() causes all contacts to be returned
-        console.log(allContacts.length)
-        console.log(angular.toJson(allContacts[0]),angular.toJson(allContacts[1]))
-        $scope.contacts=[]
-        allContacts.forEach(function(element) {
-         if(element.displayName&&element.displayName!==""&&element.phoneNumbers&&element.phoneNumbers.length>0)
-         {
-           $scope.contacts.push({phoneNumber:element.phoneNumbers[0].value,name:element.displayName})
-         }
-        });
+  appControllers.controller('inviteCtrl', function ($scope, $rootScope, $state, $stateParams, $timeout, $firebaseArray, ConfigurationService, MessagesService, UserService, EntityService, $cordovaContacts, $cordovaSms) {
+    ConfigurationService.getContactList().then(function (contacts) {
+      $scope.contacts = contacts;
 
-        // $scope.contacts = allContacts;
-      });
+    }, function (err) {
 
-    };
-    if (window.cordova) {
-      $scope.getAllContacts();
+    })
+
+var contactsObject={}
+    $scope.selectContact=function (contact) {
+      if(contactsObject[contact.phoneNumber])
+      {
+        delete contactsObject[contact.phoneNumber];
+      }
+      else {
+        contactsObject[contact.phoneNumber]=contact;
+      }
     }
     $scope.sms = {};
 
@@ -30,9 +26,8 @@
         //intent: ''        // send SMS without open any other app
       }
     }
-    $scope.sendSms = function () {
-      $scope.sms.number = [0528865996,0545482551];
-      $scope.sms.message = "da7le !!";
+    $scope.sendSms = function ( ) {
+
 
       $cordovaSms
         .send($scope.sms.number, $scope.sms.message, options)
@@ -105,11 +100,29 @@
     //   $state.go('chat', {conversationId: message.conversationId})
     // }
     //
-    // $scope.goToUserProfile = function (message) {
-    //   UserService.SetUserProfile(message);
-    //   $state.go('userProfile')
-    //
-    // }
+    $scope.sendBtn = function () {
+
+      var numbersArray=[]
+      var usersArray=[]
+      for (var property in contactsObject) {
+
+          numbersArray.push(property);
+          usersArray.push({phone_number:contactsObject[property].phoneNumber,nickname:contactsObject[property].name})
+
+          // do stuff
+      }
+      UserService.Invite({users:usersArray}).then(function () {
+        $scope.sms.number = numbersArray;
+        $scope.sms.message = "da7le !!";
+        if(window.cordova)
+        {
+          $scope.sendSms();
+        }
+        $state.go("friends");
+      }, function (err) {
+      })
+
+    }
   });
 })();
 

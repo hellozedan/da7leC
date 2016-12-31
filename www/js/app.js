@@ -153,6 +153,12 @@
           controller: "friendsCtrl"
 
         })
+        .state('invite', {
+          url: "/invite",
+          templateUrl: "templates/invite/html/invite.html",
+          controller: "inviteCtrl"
+
+        })
         // .state('tab.friends', {
         //   url: '/friends',
         //   views: {

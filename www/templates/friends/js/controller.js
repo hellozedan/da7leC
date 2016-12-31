@@ -6,7 +6,10 @@
       },
       function (err) {
       }
-    );
+    )
+    $scope.invite=function () {
+      $state.go('invite');
+    }
     $scope.sendDahle=function(friend){
       console.log('dahle!');
     }

@@ -61,10 +61,10 @@
                 } else {
                   console.log("subjects")
 
-                  $state.go("tab.match");
+                  $state.go("friends");
                 }
               });
-              $state.go("tab.match");
+              $state.go("friends");
             }, function (err) {
               alert("error")
             });

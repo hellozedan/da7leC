@@ -571,9 +571,13 @@ textarea, input::-webkit-input-placeholder {
 }
 
 .create-subject-btn {
-  padding: 15px;
-  height: 60px;
-  width: 60px;
+  padding-right: 15px;
+  padding-top: 10px;
+  border-radius: 70px;
+  font-size: 50px;
+  background: whitesmoke;
+  height: 70px;
+  width: 70px;
   background-size: 100% 100%;
   background-repeat: repeat-x;
 }
@@ -735,7 +739,7 @@ textarea, input::-webkit-input-placeholder {
 
 .toggle.toggle-assertive input:checked + .track {
   background-color: #787878;
-  border-color: #787878;  
+  border-color: #787878;
 }
 
 .filter-clicked-button {
