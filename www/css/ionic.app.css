@@ -10156,7 +10156,6 @@ p.notification {
   height: 88px;
   margin-bottom: 10px;
   border-radius: 19px;
-  padding-left: 100px;
   background-color: #ececec;
   border-color: #ececec; }
 
@@ -10164,7 +10163,12 @@ p.notification {
   max-width: 70px;
   max-height: 70px; }
 
-.contact-phone-list .subject-container {
+.contact-phone-list .contact-phone-items {
+  right: -28px;
+  position: absolute;
+  top: 12px; }
+
+.contact-phone-list .contact-phone-items-number {
   right: 5px;
   position: absolute;
   top: 12px; }
@@ -10172,6 +10176,9 @@ p.notification {
 .contact-phone-list .subject-container img {
   padding-top: 10px;
   width: 30px; }
+
+.clicked-item {
+  opacity: 0.5; }
 
 .tabs .tab-item .icon.subjects-blue {
   margin-top: 4% !important;
@@ -10549,14 +10556,22 @@ button:active {
 
 .contact-phone-items {
   width: 90%;
-  font-size: xx-large !important;
+  font-size: large !important;
   white-space: initial !important;
-  height: 90%;
-  text-align: center;
-  margin-top: 8%;
   margin-bottom: 10% !important;
   color: #4bacc6 !important;
-  font-weight: bold; }
+  font-weight: 700; }
+
+.contact-phone-items-number {
+  width: 90%;
+  font-size: large !important;
+  white-space: initial !important;
+  text-align: center;
+  margin-bottom: 10% !important;
+  color: #4bacc6 !important;
+  font-weight: 700;
+  top: 29px !important;
+  color: #4f5354 !important; }
 
 .last-message {
   font-weight: bold; }
@@ -10643,3 +10658,31 @@ input[type=search], input[type=text], input[type=password], input[type=datetime]
 
 .name-letter {
   font-size: 50px; }
+
+.item-radio input:checked + .radio-content .item-content {
+  background: #ececec !important; }
+
+.item-radio .radio-content .item-content {
+  background: #ececec !important; }
+
+.selected-contact {
+  font-size: 30px;
+  position: absolute;
+  margin-top: 15px; }
+
+.search-contact {
+  background-color: #4bacc6;
+  border-color: #4bacc6;
+  color: #ffffff;
+  height: 60px;
+  margin-bottom: 10px;
+  border-radius: 19px;
+  padding-left: 100px; }
+
+.placeholder-icon {
+  color: #ececec !important;
+  font-size: 22px; }
+
+.search-input::-webkit-input-placeholder {
+  /* Chrome/Opera/Safari */
+  color: #ececec !important; }

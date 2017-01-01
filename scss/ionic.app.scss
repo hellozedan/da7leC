@@ -441,7 +441,6 @@ background-color:#4f5354;
   height: 88px;
   margin-bottom: 10px;
   border-radius: 19px;
-  padding-left: 100px;
   background-color: rgb(236, 236, 236);
   border-color: rgb(236, 236, 236);
 }
@@ -451,7 +450,13 @@ background-color:#4f5354;
   max-height: 70px;
 }
 
-.contact-phone-list .subject-container {
+.contact-phone-list .contact-phone-items {
+  right: -28px;
+  position: absolute;
+  top: 12px;
+}
+
+.contact-phone-list .contact-phone-items-number {
   right: 5px;
   position: absolute;
   top: 12px;
@@ -462,6 +467,10 @@ background-color:#4f5354;
   width: 30px
 }
 
+
+.clicked-item{
+  opacity: 0.5;
+}
 
 
 .tabs .tab-item .icon.subjects-blue {
@@ -923,14 +932,23 @@ button:active {
 
 .contact-phone-items {
   width: 90%;
-  font-size: xx-large !important;
-  white-space: initial !important;
-  height:90%;
+  font-size: large!important;
+  white-space: initial!important;
+  margin-bottom: 10%!important;
+  color: #4bacc6!important;
+  font-weight: 700;
+}
+
+.contact-phone-items-number {
+  width: 90%;
+  font-size: large!important;
+  white-space: initial!important;
   text-align: center;
-  margin-top: 8%;
-  margin-bottom: 10% !important;
-  color: #4bacc6 !important;
-  font-weight: bold;
+  margin-bottom: 10%!important;
+  color: #4bacc6!important;
+  font-weight: 700;
+  top: 29px !important;
+  color: #4f5354 !important;
 }
 
 
@@ -1028,3 +1046,38 @@ input[type=search], input[type=text], input[type=password], input[type=datetime]
 .name-letter{
   font-size: 50px;
 }
+
+
+.item-radio input:checked+.radio-content .item-content {
+  background: #ececec !important;
+}
+
+.item-radio .radio-content .item-content {
+  background: #ececec !important;
+}
+
+.selected-contact{
+  font-size: 30px;
+  position: absolute;
+  margin-top: 15px;
+}
+
+.search-contact{
+  background-color: #4bacc6;
+  border-color: #4bacc6;
+  color: #ffffff;
+  height: 60px;
+  margin-bottom: 10px;
+  border-radius: 19px;
+  padding-left: 100px;
+}
+
+
+.placeholder-icon {
+  color: #ececec !important;
+  font-size: 22px;
+}
+.search-input::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: #ececec !important;
+}
+

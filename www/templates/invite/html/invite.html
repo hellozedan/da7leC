@@ -1,5 +1,9 @@
 <ion-view class="messages-page" cache-view="false">
   <ion-content class="messages-content padding gray-bg"  style="background-color:#4f5354;">
+      <label class="item item-input search-contact">
+          <i class="icon ion-search placeholder-icon"></i>
+          <input type="text" placeholder="Find Number" data-ng-model="searchForce" class="search-input"style="color:#ececec; font-size: 22px;">
+      </label>
     <ion-list class="contact-phone-list">
 
       <!--<ion-item ng-click="" class="item-avatar item-icon-right" ng-repeat="friend in friendList">-->
@@ -10,15 +14,20 @@
         <!--&lt;!&ndash;<i ng-class="message.readMessage ? 'message-unread' : (!message.readMessage ? 'message-read' : 'message-unread')" ng-click="goToChat(message)" class="icon ion-chevron-right"></i>&ndash;&gt;-->
         <!--&lt;!&ndash;<i class="icon ion-record online-offline" ng-class="{'online-circle': message.online, 'offline-circle': !message.online}"></i>&ndash;&gt;-->
         <!--</ion-item>-->
-        <ion-checkbox ng-model="contact.isSelected" ng-repeat="contact in contacts" ng-mousedown="selectContact(contact)">
-          <ion-item ng-click="" class="item-avatar item-icon-right" >
+
+        <ion-item ng-click="selectThisPerson(contact)" ng-model="contact.isSelected" ng-repeat="contact in contacts |filter:searchForce" ng-mousedown="selectContact(contact)" ng-class="{'clicked-item': contact.isSelected==true, 'has-error': error}">
+          <!--<ion-item ng-click="" class="item-avatar item-icon-right" >-->
+            <span class="ion-checkmark-round selected-contact"  ng-show="contact.isSelected" > </span>
+                <p class="contact-phone-items">{{contact.name  }}</p>
+                <br>
+                <p class="contact-phone-items-number">{{contact.phoneNumber}}</p>
+
 
          <!-- <identicon  username='selectedPerson.phoneNumber ' size='26'></identicon>-->
           <!--<img ng-if="message.fbPhotoUrl" ng-src="{{message.fbPhotoUrl}}">-->
-          <p class="contact-phone-items">{{contact.name  }}</p>
-              <p class="subject-description">{{contact.phoneNumber}}</p>
+
           </ion-item>
-        </ion-checkbox>
+
         <!--<i ng-class="message.readMessage ? 'message-unread' : (!message.readMessage ? 'message-read' : 'message-unread')" ng-click="goToChat(message)" class="icon ion-chevron-right"></i>-->
         <!--<i class="icon ion-record online-offline" ng-class="{'online-circle': message.online, 'offline-circle': !message.online}"></i>-->
 

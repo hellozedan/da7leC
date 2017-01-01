@@ -39,6 +39,11 @@ var contactsObject={}
           console.log(error);
         });//then
     }
+
+    $scope.selectThisPerson = function (contact) {
+      contact.isSelected=!(contact.isSelected);
+    }
+
     $scope.selectPerson = function () {
       if (window.cordova) {
         $cordovaContacts.pickContact().then(function (contact) {
