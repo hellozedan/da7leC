@@ -14,7 +14,7 @@
       <ion-item class="item-avatar item-icon-right" ng-repeat="friend in friends" ng-click="sendDahle(friend)">  <!--ng-if="friend.confirmed_date"-->
         <identicon style="border: 8px solid #267fcb;" username='friend.phone_number ' size='26' ></identicon>        <!--<img ng-if="message.fbPhotoUrl" ng-src="{{message.fbPhotoUrl}}">-->
       <!--  <p class="subject-description">{{friend.phone_number  }} {{friend.phone_number}}</p>&lt;!&ndash;-->
-        <p class="subject-description" >{{friend.nickname}}</p>
+        <p class="subject-description" >{{contactObject[friend.phone_number]&&contactObject[friend.phone_number].name || friend.nickname}}</p>
         <span class="subject-time" am-time-ago="friend.dahleTime"></span>
 
 
