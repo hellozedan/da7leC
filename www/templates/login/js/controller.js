@@ -5,14 +5,14 @@
     };
     $scope.validPhone = false;
     $scope.validSms = false;
-
+    $scope.title_arabic='??????';
+    $scope.NotSendYet=true;
     $scope.send =function(){
       if($scope.validPhone == false && $scope.auth.phoneNumber && $scope.auth.phoneNumber.length == 10 && $scope.auth.phoneNumber.indexOf('05')>=0){
         UserService.AuthPhone($scope.auth.phoneNumber)
           .then(function (user) {
-
+              NotSendYet=false;
             window.localStorage['user'] = angular.toJson(user);
-
             $scope.validPhone = true;
           }, function (err) {
           });
@@ -27,7 +27,7 @@
           .then(function (user) {
             ConfigurationService.userDetails = null;
             window.localStorage['user'] = angular.toJson(user);
-            $state.go("tab.match");
+            $state.go("friends");
             // debugger
             // $scope.validSms = true;
           }, function (err) {

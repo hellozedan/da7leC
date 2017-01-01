@@ -9982,7 +9982,7 @@ p.notification {
 .subject-element {
   font-size: 12px !important;
   border-radius: 5px !important;
-  background-color: gainsboro !important;
+  background-color: #4bacc6 !important;
   margin: 10px !important;
   margin-bottom: 15px !important; }
 
@@ -10060,7 +10060,7 @@ p.notification {
   top: 60px !important; }
 
 .fb-page {
-  background-image: url("../img/login-bg.png");
+  background-color: #4f5354;
   background-size: 100% 100%;
   background-repeat: repeat-x;
   height: 100%;
@@ -10132,10 +10132,12 @@ p.notification {
   height: 60px !important; }
 
 .subject-list .list .item {
-  height: 100px;
+  height: 88px;
   margin-bottom: 10px;
-  border-radius: 5px;
-  padding-left: 100px; }
+  border-radius: 19px;
+  padding-left: 100px;
+  background-color: #ececec;
+  border-color: #ececec; }
 
 .subject-list .list .item img {
   max-width: 70px;
@@ -10147,6 +10149,27 @@ p.notification {
   top: 12px; }
 
 .subject-list .subject-container img {
+  padding-top: 10px;
+  width: 30px; }
+
+.contact-phone-list .list .item {
+  height: 88px;
+  margin-bottom: 10px;
+  border-radius: 19px;
+  padding-left: 100px;
+  background-color: #ececec;
+  border-color: #ececec; }
+
+.contact-phone-list .list .item img {
+  max-width: 70px;
+  max-height: 70px; }
+
+.contact-phone-list .subject-container {
+  right: 5px;
+  position: absolute;
+  top: 12px; }
+
+.contact-phone-list .subject-container img {
   padding-top: 10px;
   width: 30px; }
 
@@ -10262,7 +10285,7 @@ textarea, input::-webkit-input-placeholder {
   background-image: url("../img/create-subject-grey.png"); }
 
 .invite-friends-plus {
-  background-image: url("../img/plus-icon.png"); }
+  background-image: url("../img/plus-icon-new.png"); }
 
 .create-subject-btn-blue {
   background-image: url("../img/create-subject-blue.png"); }
@@ -10272,7 +10295,22 @@ textarea, input::-webkit-input-placeholder {
   padding-top: 10px;
   border-radius: 70px;
   font-size: 50px;
-  background: whitesmoke;
+  color: #4bacc6;
+  color: #ececec;
+  background: #4bacc6;
+  height: 70px;
+  width: 70px;
+  background-size: 100% 100%;
+  background-repeat: repeat-x; }
+
+.create-subject-btn {
+  padding-right: 15px;
+  padding-top: 10px;
+  border-radius: 70px;
+  font-size: 50px;
+  color: #4bacc6;
+  color: #ececec;
+  background: #4bacc6;
   height: 70px;
   width: 70px;
   background-size: 100% 100%;
@@ -10504,9 +10542,20 @@ button:active {
   white-space: initial !important;
   height: 90%;
   text-align: center;
-  margin-top: 10%;
+  margin-top: 8%;
   margin-bottom: 10% !important;
-  color: #1676c7 !important;
+  color: #4bacc6 !important;
+  font-weight: bold; }
+
+.contact-phone-items {
+  width: 90%;
+  font-size: xx-large !important;
+  white-space: initial !important;
+  height: 90%;
+  text-align: center;
+  margin-top: 8%;
+  margin-bottom: 10% !important;
+  color: #4bacc6 !important;
   font-weight: bold; }
 
 .last-message {
@@ -10519,7 +10568,7 @@ button:active {
 .subject-time {
   font-size: 12px !important;
   position: absolute;
-  right: 5px;
+  right: 10px;
   bottom: 5px;
   color: #666; }
 
@@ -10578,14 +10627,16 @@ button:active {
 .auth-container .phone-number {
   text-align: center;
   width: 100%;
-  height: 40px;
-  border-radius: 4px; }
+  height: 46px;
+  border-radius: 25px; }
 
 input[type=search], input[type=text], input[type=password], input[type=datetime], input[type=datetime-local], input[type=date], input[type=month], input[type=time], input[type=week], input[type=number], input[type=email], input[type=url], input[type=tel], input[type=color], textarea {
   line-height: 0px; }
 
 .auth-container .send-button {
-  height: 40px; }
+  height: 40px;
+  background-color: #4bacc6;
+  border-radius: 25px; }
 
 .match-content .scroll {
   height: 100% !important; }

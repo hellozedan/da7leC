@@ -1,6 +1,6 @@
 <ion-view class="messages-page" cache-view="false">
-  <ion-content class="messages-content padding gray-bg">
-    <ion-list class="subject-list">
+  <ion-content class="messages-content padding gray-bg"  style="background-color:#4f5354;">
+    <ion-list class="contact-phone-list">
 
       <!--<ion-item ng-click="" class="item-avatar item-icon-right" ng-repeat="friend in friendList">-->
         <!--<identicon ng-if="!message.fbPhotoUrl" username='friend.phoneNumber ' size='26'></identicon>-->
@@ -12,9 +12,11 @@
         <!--</ion-item>-->
         <ion-checkbox ng-model="contact.isSelected" ng-repeat="contact in contacts" ng-mousedown="selectContact(contact)">
           <ion-item ng-click="" class="item-avatar item-icon-right" >
-          <identicon  username='selectedPerson.phoneNumber ' size='26'></identicon>
+
+         <!-- <identicon  username='selectedPerson.phoneNumber ' size='26'></identicon>-->
           <!--<img ng-if="message.fbPhotoUrl" ng-src="{{message.fbPhotoUrl}}">-->
-          <p class="subject-description">{{contact.name  }} {{contact.phoneNumber}}</p>
+          <p class="contact-phone-items">{{contact.name  }}</p>
+              <p class="subject-description">{{contact.phoneNumber}}</p>
           </ion-item>
         </ion-checkbox>
         <!--<i ng-class="message.readMessage ? 'message-unread' : (!message.readMessage ? 'message-read' : 'message-unread')" ng-click="goToChat(message)" class="icon ion-chevron-right"></i>-->

@@ -1,5 +1,5 @@
 <ion-view class="messages-page" cache-view="false">
-  <ion-content class="messages-content padding gray-bg">
+  <ion-content class="messages-content padding gray-bg" style="background-color:#4f5354;">
     <ion-list class="subject-list">
 
       <!--<ion-item ng-click="" class="item-avatar item-icon-right" ng-repeat="friend in friendList">-->
@@ -12,7 +12,7 @@
         <!--</ion-item>-->
 
       <ion-item class="item-avatar item-icon-right" ng-repeat="friend in friends" ng-click="sendDahle(friend)">  <!--ng-if="friend.confirmed_date"-->
-        <identicon style="border: 8px solid #267fcb;" username='friend.phone_number ' size='26' ></identicon>        <!--<img ng-if="message.fbPhotoUrl" ng-src="{{message.fbPhotoUrl}}">-->
+        <identicon style="border: 8px solid #4bacc6;top: 10px" username='friend.phone_number ' size='26' ></identicon>        <!--<img ng-if="message.fbPhotoUrl" ng-src="{{message.fbPhotoUrl}}">-->
       <!--  <p class="subject-description">{{friend.phone_number  }} {{friend.phone_number}}</p>&lt;!&ndash;-->
         <p class="subject-description" >{{contactObject[friend.phone_number]&&contactObject[friend.phone_number].name || friend.nickname}}</p>
         <span class="subject-time" am-time-ago="friend.dahleTime"></span>

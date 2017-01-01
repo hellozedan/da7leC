@@ -5,12 +5,12 @@
       <div class="login-top">
         <ion-list>
           <ion-item class="item-thumbnail-left">
-            <img src="img/logo.png">
+            <img src="img/d-logo.png">
             <div>
-              <span class="think-out">You must</span>
+              <span class="think-out">داحلة</span>
             </div>
             <div class="login-loudly">
-              <span >Know</span>
+              <span >Da7le !</span>
             </div>
             <!--<p class="think-out">Think Out</p>-->
             <!--<p class="login-loudly">loudly</p>-->
@@ -23,14 +23,17 @@
       <div class="auth-container">
         <input ng-if="!validPhone" class="phone-number" ng-model="auth.phoneNumber" type="tel" placeholder="Phone Number">
         <input ng-if="validPhone && !validSms" class="phone-number" ng-model="auth.smsCode" type="tel" placeholder="sms code">
-        <button ng-click="send()" class="button button-block button-positive send-button">
-          <span>Send</span>
+        <button ng-click="send()" class="button button-block  send-button">
+          <span style="font-size: 150%;">Go</span>
         </button>
-        <button ng-if="validSms" ng-click="fbLogin()" class="button button-block button-positive icon-left ion-social-facebook fb-button">
-          <span class="login-with-fb">Login With Facebook</span>
-        </button>
-      </div>
 
+        <span style="color: white" ng-if="!validPhone"> You will receive a Code via SMS</span>
+        <span style="color: white" ng-if="validPhone"> Enter the Code that you received via SMS</span>
+       <!-- <button ng-if="validSms" ng-click="fbLogin()" class="button button-block button-positive icon-left ion-social-facebook fb-button">
+          <span class="login-with-fb">Login With Facebook</span>
+        </button>-->
+      </div>
+   
 
 
 
