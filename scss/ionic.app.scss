@@ -390,12 +390,14 @@ background-color:#4f5354;
 }
 
 .add-subject-fotter {
-  background: transparent;
-  bottom: 40px;
+  bottom: 80px;
+  border: 0px;
+  padding: 0px;
   left: -9px;
-  right: 0px;
+  right: 0;
   background: 0 0;
   direction: rtl;
+  height: 0px !important;
 }
 
 .filter-fotter i {
