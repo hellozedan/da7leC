@@ -920,14 +920,13 @@ button:active {
 
 .subject-description {
   width: 90%;
-  font-size: xx-large !important;
-  white-space: initial !important;
-  height:90%;
+  font-size: 30px !important;
+  line-height: 60px;
+  white-space: initial!important;
+  height: 90%;
   text-align: center;
-  margin-top: 8%;
-  margin-bottom: 10% !important;
-  color: #4bacc6 !important;
-  font-weight: bold;
+  color: #4bacc6!important;
+  font-weight: 700;
 }
 
 .contact-phone-items {
