@@ -3,7 +3,9 @@
     $scope.friends = [];
     $scope.contactObject = {};
     $scope.pop = function(){
-      toastr.success('Hello world!', 'Toastr fun!');
+      toastr.success('sent','Dal7e! ',{closeButton: true, timeOut: 100});
+
+      // 000,iconClass: 'toast-top-full-width'
     };
     // $ionicPlatform.ready(function() {
     //   // Enable to debug issues.
