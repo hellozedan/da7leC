@@ -1,30 +1,16 @@
 <ion-view class="messages-page" cache-view="false">
   <ion-content class="messages-content padding gray-bg" style="background-color:#4f5354;">
     <ion-list class="subject-list">
-
-      <!--<ion-item ng-click="" class="item-avatar item-icon-right" ng-repeat="friend in friendList">-->
-        <!--<identicon ng-if="!message.fbPhotoUrl" username='friend.phoneNumber ' size='26'></identicon>-->
-        <!--&lt;!&ndash;<img ng-if="message.fbPhotoUrl" ng-src="{{message.fbPhotoUrl}}">&ndash;&gt;-->
-        <!--&lt;!&ndash;<p class="last-message"><span ng-if="!message.userName">X </span><span>{{message.userName}}</span>: {{message.lastMessage}}</p>&ndash;&gt;-->
-        <!--<p class="subject-description">{{friend.phoneNumber }}</p>-->
-        <!--&lt;!&ndash;<i ng-class="message.readMessage ? 'message-unread' : (!message.readMessage ? 'message-read' : 'message-unread')" ng-click="goToChat(message)" class="icon ion-chevron-right"></i>&ndash;&gt;-->
-        <!--&lt;!&ndash;<i class="icon ion-record online-offline" ng-class="{'online-circle': message.online, 'offline-circle': !message.online}"></i>&ndash;&gt;-->
-        <!--</ion-item>-->
-
-      <ion-item class="item-avatar item-icon-right" ng-repeat="friend in friends" ng-click="sendDahle(friend)">  <!--ng-if="friend.confirmed_date"-->
-        <identicon style="border: 8px solid #4bacc6;top: 10px" username='friend.phone_number ' size='26' ></identicon>        <!--<img ng-if="message.fbPhotoUrl" ng-src="{{message.fbPhotoUrl}}">-->
-      <!--  <p class="subject-description">{{friend.phone_number  }} {{friend.phone_number}}</p>&lt;!&ndash;-->
-        <p class="subject-description" >{{contactObject[friend.phone_number]&&contactObject[friend.phone_number].name || friend.nickname}}</p>
+      <ion-item class="item-avatar item-icon-right" ng-repeat="friend in friends | orderBy:'-dahleTime'" ng-click="sendDahle(friend)">
+        <identicon style="border: 8px solid #4bacc6;top: 10px" username='friend.phone_number ' size='26'></identicon>
+        <p class="subject-description">{{contactObject[friend.phone_number]&&contactObject[friend.phone_number].name ||
+          friend.nickname}}</p>
         <span class="subject-time" am-time-ago="friend.dahleTime"></span>
-
-
-        <!--<i ng-class="message.readMessage ? 'message-unread' : (!message.readMessage ? 'message-read' : 'message-unread')" ng-click="goToChat(message)" class="icon ion-chevron-right"></i>-->
-        <!--<i class="icon ion-record online-offline" ng-class="{'online-circle': message.online, 'offline-circle': !message.online}"></i>-->
-        </ion-item>
+      </ion-item>
     </ion-list>
   </ion-content>
   <div class="bar bar-footer add-subject-fotter">
-    <div ng-click="invite()"  class="create-subject-btn ion-plus">
+    <div ng-click="invite()" class="create-subject-btn ion-plus">
 
     </div>
 

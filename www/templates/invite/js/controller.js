@@ -66,45 +66,8 @@ var contactsObject={}
           ]
         };
         $scope.selectedPerson = contact;
-
-        // } else {
-        //   var contact = {
-        //     displayName: "ahmed zedany",
-        //     name: {
-        //       familyName: "abo zedany",
-        //       givenName: "ahmed"
-        //     },
-        //     phoneNumbers: [
-        //       {
-        //         id: "1234",
-        //         value: "052-111-1111"
-        //       }
-        //     ]
-        //   }
-        // }
-        //if (!$scope.$$phase) $scope.$apply()
       }
-
     }
-    // $scope.$on('sendMessagesEvent', function(event, mass) {
-    //   $scope.messages = MessagesService.getMessages();
-    //   if(!$scope.$$phase) {
-    //     $scope.$apply();
-    //   }
-    // });
-    // MessagesService.setMessages();
-    // $scope.goToChat = function (message) {
-    //   var messageDetails = {
-    //     conversationId: message.conversationId,
-    //     fbPhotoUrl: message.fbPhotoUrl,
-    //     userName: message.userName,
-    //     subjectName: message.subjectName,
-    //     desc:message.desc
-    //   }
-    //   EntityService.setMessageDetails(messageDetails);
-    //   $state.go('chat', {conversationId: message.conversationId})
-    // }
-    //
     $scope.sendBtn = function () {
 
       var numbersArray=[]

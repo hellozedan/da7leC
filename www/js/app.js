@@ -1,7 +1,7 @@
-(function(){
-  angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', 'angularMoment', 'ngCordova', 'firebase','ui.identicon'])
+(function () {
+  angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', 'angularMoment', 'ngCordova', 'firebase', 'ui.identicon','toastr'])
 
-    .run(function($ionicPlatform, $state, ConfigurationService, UserService, EntityService,$timeout) {
+    .run(function ($ionicPlatform, $state, ConfigurationService, UserService, EntityService, $timeout) {
       // $ionicPlatform.on('pause', function() {
       //   Firebase.goOffline();
       //
@@ -10,9 +10,9 @@
       //   Firebase.goOnline();
       //
       // });
-      $ionicPlatform.ready(function() {
+      $ionicPlatform.ready(function () {
         if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {
-          setTimeout(function() {
+          setTimeout(function () {
             navigator.splashscreen.hide();
           }, 50);
           cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
@@ -23,49 +23,29 @@
           StatusBar.styleDefault();
         }
         var isNotificationClicked = false;
+
+
         if (window.cordova && typeof window.plugins.OneSignal != 'undefined' && !ConfigurationService.Notification_token()) {
           console.log('in 1')
-          $timeout(function () {
+          // window.plugins.OneSignal.setLogLevel({logLevel: 4, visualLevel: 4});
+          var notificationOpenedCallback = function (jsonData) {
+            var json=JSON.parse(jsonData.notification.payload.additionalData);
             console.log('in 2')
-            console.log( window.plugins.OneSignal)
-            console.log( window.plugins.OneSignal.getIds)
-// window.plugins.OneSignal.setLogLevel({logLevel: 4, visualLevel: 4});
-
-            var notificationOpenedCallback = function(jsonData) {
-              console.log('in 3')
-              console.log('notificationOpenedCallback: ' + JSON.stringify(jsonData));
-            };
-            $timeout(function () {
-              window.plugins.OneSignal
-                .startInit("722ff6c3-d7b7-4a8e-8222-ba130b1eae7b")
-                .handleNotificationOpened(notificationOpenedCallback)
-                .endInit();
-            },0);
-
-
-            // window.plugins.OneSignal.getIds(function (ids) {
-            //   console.log('in 3')
-            //   UserService.RegisterNotification(ids.userId)
-            //     .then(function (userToken) {
-            //       console.log('in 4')
-            //       ConfigurationService.SetNotification_token(userToken);
-            //     }, function (err) {
-            //       console.log('in 5')
-            //     });
-            // },function (err) {
-            //   console.log('in 6')
-            //   console.err(err)
-            // });
-          }, 0)
+            alert("Notification received:\n" + JSON.stringify(json));
+            console.log('didReceiveRemoteNotificationCallBack: ' + JSON.stringify(jsonData));
+          };
+          window.plugins.OneSignal
+            .startInit("f4348bab-6374-4533-9781-75bb7041baf3", "510262335541")
+            .handleNotificationOpened(notificationOpenedCallback)
+            .endInit();
         }
-
 
         var user = ConfigurationService.UserDetails();
         if (user) {
           UserService.CheckUser()
             .then(function (user) {
 
-              if(user.isNeedLogin === false){
+              if (user.isNeedLogin === false) {
 
 
                 // var ref = new Firebase("https://mustknow.firebaseIO.com");
@@ -76,6 +56,7 @@
                 //     console.log("Login Failed!", error);
                 //   } else {
                 //     if(!isNotificationClicked)
+                // $state.go("friends");
                 ConfigurationService.getContactList().then(function (user) {
                   $state.go("friends");
                 },function(){
@@ -85,47 +66,47 @@
                 //   }
                 // });
               }
-              else{
+              else {
                 $state.go("login");
               }
             }, function (err) {
               $state.go("login");
             });
-        }else{
+        } else {
           $state.go("login");
         }
 
       });
     })
-    .factory('focus', function($timeout, $window) {
-      return function(id) {
+    .factory('focus', function ($timeout, $window) {
+      return function (id) {
         // timeout makes sure that is invoked after any other event has been triggered.
         // e.g. click events that need to run before the focus or
         // inputs elements that are in a disabled state but are enabled when those events
         // are triggered.
-        $timeout(function() {
+        $timeout(function () {
           var element = $window.document.getElementById(id);
-          if(element)
+          if (element)
             element.focus();
         });
       };
     })
 
-    .directive('eventFocus', function(focus) {
-      return function(scope, elem, attr) {
-        elem.on(attr.eventFocus, function() {
+    .directive('eventFocus', function (focus) {
+      return function (scope, elem, attr) {
+        elem.on(attr.eventFocus, function () {
           focus(attr.eventFocusId);
         });
 
         // Removes bound events in the element itself
         // when the scope is destroyed
-        scope.$on('$destroy', function() {
+        scope.$on('$destroy', function () {
           element.off(attr.eventFocus);
         });
       };
     })
 
-    .config(function($stateProvider, $urlRouterProvider) {
+    .config(function ($stateProvider, $urlRouterProvider) {
 
       $stateProvider
         .state('tab', {
